@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="SocialAppV2.View.ViewMapPreferences"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="1100" d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+            <StackPanel>
+                <Grid Height="157" Width="430" HorizontalAlignment="Left">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="34*"/>
+                        <RowDefinition Height="56*"/>
+                        <RowDefinition Height="67*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="cab2" TextWrapping="Wrap" Text="Ubicaciones en las que haya..." FontSize="24" Margin="0"/>
+                    <toolkit:ToggleSwitch x:Name="likesMen" IsChecked="{Binding likesMen, Mode=TwoWay}" HorizontalAlignment="Left" Width="438" Content="Hombres" Height="106" Margin="0,0,-8,0" FontSize="24" BorderThickness="0" Grid.Row="1" Grid.RowSpan="2" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Left" Padding="0"/>
+                    <toolkit:ToggleSwitch x:Name="likesWomen" IsChecked="{Binding likesWomen, Mode=TwoWay}" HorizontalAlignment="Left" Width="438" Content="Mujeres" Margin="0,0,-8,-32" FontSize="24" Grid.Row="2" Height="99"/>
+                </Grid>
+                <Grid Height="211" RenderTransformOrigin="0.5,0.427" Width="474">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="edadescab" TextWrapping="Wrap" Text="Edades" FontSize="24" Margin="0"/>
+                    <TextBlock x:Name="desde" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Desde" VerticalAlignment="Top" Height="30" Width="456" Grid.Row="1"/>
+                    <TextBlock x:Name="edadmin" TextWrapping="Wrap" Text="{Binding Value, ElementName=edaddesde}" Margin="391,4,36,0" FontSize="40" RenderTransformOrigin="0.546,0.538" TextAlignment="Center" Grid.Row="2" Height="53" Width="53"/>
+                    <TextBlock x:Name="hasta" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hasta" VerticalAlignment="Top" Grid.Row="3" Width="456" Margin="0"/>
+                    <TextBlock x:Name="edadmax" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Value, ElementName=edadhasta}" VerticalAlignment="Top" Width="53" Height="53" Grid.Row="4" Margin="391,0,0,0" FontSize="40" TextAlignment="Center" Grid.RowSpan="2"/>
+                    <Slider x:Name="edaddesde" Value="{Binding minAge, Mode=TwoWay}" SmallChange="1" Minimum="18" Maximum="99" Margin="0,0,88,0" Grid.Row="2" Height="88" VerticalAlignment="Top" Grid.RowSpan="2" BorderThickness="0"/>
+                    <Slider x:Name="edadhasta" Value="{Binding maxAge, Mode=TwoWay}" HorizontalAlignment="Left" Grid.Row="4" Width="368" Margin="0" Minimum="18" Maximum="99" SmallChange="1" Grid.RowSpan="3"/>
+                </Grid>
+                <Grid Height="100" Visibility="Collapsed">
+                    <TextBlock x:Name="distcab" TextWrapping="Wrap" Text="Radio de busqueda" Visibility="Collapsed" Margin="0,368,0,-268"/>
+                    <TextBlock x:Name="KM" HorizontalAlignment="Left" TextWrapping="Wrap" Text="KM" VerticalAlignment="Top" Margin="411,10,0,0" Height="38" Width="44" FontSize="26.667"/>
+                    <TextBlock x:Name="radio" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Value, ElementName=radioslider}" VerticalAlignment="Top" Width="53" Height="53" Margin="373,2,0,0" FontSize="33.333"/>
+                    <Slider x:Name="radioslider" Value="{Binding radio, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="368" Height="90" Margin="0,-10,0,0" Minimum="1" Maximum="100" SmallChange="1"/>
+                </Grid>
+                <StackPanel Width="430" HorizontalAlignment="Left">
+                    <CheckBox x:Name="_1_Cafe" IsChecked="{Binding Path=placeTypes[0], Mode=TwoWay}" Content="Cafe" FlowDirection="RightToLeft" Width="429" HorizontalContentAlignment="Stretch" />
+                    <CheckBox x:Name="_2_Pub" IsChecked="{Binding placeTypes[1], Mode=TwoWay}" Content="Pub" FlowDirection="RightToLeft" Width="429"/>
+                    <CheckBox x:Name="_3_Chiringuito" IsChecked="{Binding placeTypes[2], Mode=TwoWay}" Content="Chiringuito" FlowDirection="RightToLeft" Width="429"/>
+                    <CheckBox x:Name="_4_BeachClub" IsChecked="{Binding placeTypes[3], Mode=TwoWay}" Content="Beach Club" FlowDirection="RightToLeft" Width="429"/>
+                    <CheckBox x:Name="_5_ClubDiscoteca" IsChecked="{Binding placeTypes[4], Mode=TwoWay}" Content="Club/Discoteca" FlowDirection="RightToLeft" Width="429"/>
+                    <CheckBox x:Name="_6_Tetería" IsChecked="{Binding placeTypes[5], Mode=TwoWay}" Content="Tetería" FlowDirection="RightToLeft" Width="429"/>
+                    <CheckBox x:Name="_7_Restaurante" IsChecked="{Binding placeTypes[6], Mode=TwoWay}" Content="Restaurante" FlowDirection="RightToLeft" Width="429"/>
+                    <CheckBox x:Name="_8_Ambienteo" IsChecked="{Binding placeTypes[7], Mode=TwoWay}" Content="Ambiente" FlowDirection="RightToLeft" Width="429"/>
+                    <CheckBox x:Name="_9_Cervecería" IsChecked="{Binding placeTypes[8], Mode=TwoWay}" Content="Cervecería" FlowDirection="RightToLeft" Width="429"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
